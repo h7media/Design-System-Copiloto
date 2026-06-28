@@ -4,14 +4,9 @@ Este é o **Padrão e Design System do Piloto Automático**. Construa soluções
 
 Estética **Lime & Slate**: lime vibrante (`#C6F24F`) sobre off-white suave, contornos em slate quase-preto, cantos arredondados tipo bloco e o par tipográfico **Outfit** (display) + **Inter** (texto/dados).
 
-## Arquivos
+## Página
 
-| Arquivo | Conteúdo |
-|---|---|
-| [`index.html`](index.html) | Fundações (tokens, cores, tipografia, espaçamento, raios, sombras), componentes base e blocos de aplicação (sidebar, hero, kanban, métricas, painel, designer). |
-| [`componentes.html`](componentes.html) | Biblioteca completa de componentes — accordion, cards, modal, dropdown, tabs, toasts, paginação, formulários, tabelas e muito mais. |
-
-Os dois são **páginas únicas e autossuficientes**: é só abrir no navegador.
+[`index.html`](index.html) — página única e autossuficiente com a biblioteca completa: fundações (tokens, cores, tipografia, espaçamento, raios, sombras), componentes base, blocos de aplicação e todos os componentes (accordion, cards, modal, dropdown, tabs, toasts, paginação, formulários, tabelas e mais). É só abrir no navegador.
 
 ## Recursos
 

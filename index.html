@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Copiloto · Design System</title>
+<title>Copiloto · Componentes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -393,6 +393,240 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
 .callout.tip{background:var(--lime-50);border:1px solid var(--lime-200);color:var(--lime-900)}
 .callout.warn{background:var(--warning-bg);border:1px solid rgba(245,158,11,.25);color:var(--warning-text)}
 
+/* ====================== COMPONENTES — BIBLIOTECA ====================== */
+/* accordion / collapse */
+.accordion{display:flex;flex-direction:column;gap:10px}
+.accordion details{background:var(--surface-1);border:1.5px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:border-color var(--dur-base),box-shadow var(--dur-base)}
+.accordion details[open]{border-color:var(--border-strong);box-shadow:var(--shadow-sm)}
+.accordion summary{list-style:none;cursor:pointer;padding:18px 20px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text-primary);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary .chev{width:30px;height:30px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:transform var(--dur-base) var(--ease-spring),background var(--dur-base),color var(--dur-base);flex:none}
+.accordion summary .chev .ti{font-size:18px}
+.accordion summary:hover .chev{background:var(--neutral-200)}
+.accordion details[open] summary .chev{background:var(--brand);color:var(--on-brand);transform:rotate(180deg)}
+.accordion .body{padding:0 20px 20px;font-size:14px;color:var(--text-secondary);line-height:1.65}
+
+/* breadcrumb */
+.bcrumb{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-muted);flex-wrap:wrap}
+.bcrumb a{color:var(--text-secondary);text-decoration:none}
+.bcrumb a:hover{color:var(--brand-active)}
+.bcrumb .sep{color:var(--text-muted)}
+.bcrumb .cur{color:var(--text-primary);font-weight:600}
+
+/* button group */
+.btn-group{display:inline-flex}
+.btn-group .btn{border-radius:0;box-shadow:inset 0 0 0 1px var(--border)}
+.btn-group .btn:first-child{border-radius:var(--radius-lg) 0 0 var(--radius-lg)}
+.btn-group .btn:last-child{border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+.btn-group .btn.sel{background:var(--brand);color:var(--on-brand);box-shadow:none}
+
+/* card */
+.bcard{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm)}
+.bcard .cap{height:130px;background:var(--lime-100);display:flex;align-items:center;justify-content:center;color:var(--lime-700)}
+.bcard .bd{padding:18px}
+.bcard .bd h4{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:6px}
+.bcard .bd p{font-size:14px;color:var(--text-secondary);line-height:1.5;margin-bottom:14px}
+.bcard .ft{padding:12px 18px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
+
+/* close button */
+.btn-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--surface-2);color:var(--text-secondary);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all var(--dur-base);flex:none}
+.btn-close:hover{background:var(--error-bg);color:var(--error-text)}
+.btn-close .ti{font-size:16px}
+
+/* dropdown */
+.dropdown{position:relative;display:inline-block}
+.dropdown>summary{list-style:none}
+.dropdown>summary::-webkit-details-marker{display:none}
+.dmenu{position:absolute;top:calc(100% + 6px);left:0;min-width:210px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:6px;z-index:5}
+.dmenu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--radius-lg);font-size:14px;color:var(--text-primary);text-decoration:none;cursor:pointer}
+.dmenu a:hover{background:var(--surface-2)}
+.dmenu a .ti{font-size:17px;color:var(--text-muted)}
+.dmenu .div{height:1px;background:var(--border);margin:6px 4px}
+
+/* list group */
+.lgroup{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-1)}
+.lgroup .it{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.lgroup .it:last-child{border-bottom:none}
+.lgroup .it .ti{font-size:18px;color:var(--text-muted)}
+.lgroup .it.active{background:var(--brand);color:var(--on-brand);font-weight:600}
+.lgroup .it.active .ti{color:var(--on-brand)}
+.lgroup .it.muted{color:var(--text-muted)}
+.lgroup a.it{text-decoration:none;color:inherit;cursor:pointer;transition:background var(--dur-base)}
+.lgroup a.it:hover{background:var(--surface-2)}
+
+/* nav tabs + pills */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.tabs button{border:none;background:transparent;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--text-secondary);padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all var(--dur-base)}
+.tabs button:hover{color:var(--text-primary)}
+.tabs button.active{color:var(--text-primary);border-bottom-color:var(--brand)}
+.tabpane{padding:18px 2px;font-size:14px;color:var(--text-secondary);line-height:1.6}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pills button{border:none;background:var(--surface-2);font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--text-secondary);padding:8px 16px;border-radius:var(--radius-full);cursor:pointer;transition:all var(--dur-base)}
+.pills button.active{background:var(--brand);color:var(--on-brand)}
+
+/* navbar */
+.navbar{display:flex;align-items:center;gap:20px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 20px;flex-wrap:wrap}
+.navbar .brand{font-family:var(--font-display);font-weight:700;font-size:17px;display:flex;align-items:center;gap:10px}
+.navbar a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500}
+.navbar a:hover,.navbar a.active{color:var(--text-primary)}
+
+/* pagination */
+.pagination{display:inline-flex;gap:4px;flex-wrap:wrap}
+.pagination a{min-width:38px;height:38px;padding:0 8px;border-radius:var(--radius-lg);border:1px solid var(--border);background:var(--surface-1);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--text-primary);text-decoration:none;cursor:pointer;transition:all var(--dur-base)}
+.pagination a:hover{background:var(--surface-2)}
+.pagination a.active{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.pagination a.disabled{color:var(--text-muted);pointer-events:none;opacity:.5}
+
+/* placeholder shimmer */
+.ph-line{height:14px;border-radius:6px;background:linear-gradient(90deg,var(--neutral-200) 25%,var(--neutral-100) 50%,var(--neutral-200) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+
+/* spinner grow */
+.spinner-grow{width:24px;height:24px;border-radius:50%;background:var(--brand);animation:grow 1s ease-in-out infinite}
+@keyframes grow{0%,100%{transform:scale(0);opacity:.3}50%{transform:scale(1);opacity:1}}
+
+/* toast */
+.toast{display:flex;align-items:center;gap:12px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:14px 16px}
+.toast .ic{width:32px;height:32px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+.toast .tx{flex:1;font-size:14px;min-width:0}
+.toast .tx b{display:block;font-weight:600}
+.toast .tx span{color:var(--text-muted);font-size:12px}
+
+/* modal (faux viewport) */
+.faux-vp{position:relative;min-height:300px;background:rgba(17,19,23,.45);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;padding:24px}
+.modal-card{background:var(--surface-1);border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);width:100%;max-width:420px;overflow:hidden}
+.modal-card .hd{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border)}
+.modal-card .hd h4{font-family:var(--font-display);font-weight:600;font-size:18px}
+.modal-card .bd2{padding:22px;font-size:14px;color:var(--text-secondary);line-height:1.6}
+.modal-card .ft{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--border)}
+
+/* offcanvas (faux) */
+.offcanvas-vp{position:relative;height:300px;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);background:var(--surface-sunken)}
+.offcanvas-panel{position:absolute;top:0;right:0;bottom:0;width:280px;max-width:80%;background:var(--surface-1);box-shadow:var(--shadow-xl);padding:22px;border-left:1px solid var(--border)}
+
+/* carousel */
+.carousel{position:relative;border-radius:var(--radius-md);overflow:hidden;background:var(--neutral-900);height:240px}
+.carousel .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:26px;opacity:0;transition:opacity var(--dur-slow)}
+.carousel .slide:nth-child(2){background:var(--lime-700)}
+.carousel .slide:nth-child(3){background:var(--neutral-700)}
+.carousel .slide.on{opacity:1}
+.carousel .ctrl{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.carousel .ctrl:hover{background:rgba(255,255,255,.3)}
+.carousel .prev{left:14px}.carousel .next{right:14px}
+.carousel .dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.carousel .dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;display:block}
+.carousel .dots i.on{background:var(--brand)}
+
+/* popover */
+.popover{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);max-width:260px;overflow:hidden}
+.popover .ttl{background:var(--surface-2);padding:10px 14px;font-weight:600;font-size:13px;border-bottom:1px solid var(--border)}
+.popover .ct{padding:12px 14px;font-size:13px;color:var(--text-secondary);line-height:1.5}
+
+/* ================== EXPANSÃO — formulários ================== */
+.igroup{display:flex;align-items:stretch}
+.igroup .addon{display:flex;align-items:center;padding:0 14px;background:var(--surface-2);border:1.5px solid var(--border);font-size:14px;color:var(--text-secondary);font-weight:600}
+.igroup .addon .ti{font-size:18px}
+.igroup>:first-child{border-radius:var(--radius-input) 0 0 var(--radius-input)}
+.igroup>:last-child{border-radius:0 var(--radius-input) var(--radius-input) 0}
+.igroup .input{border-radius:0}
+.igroup .input:not(:first-child),.igroup .addon:not(:first-child){border-left:none}
+.igroup .btn{border-radius:0}
+.igroup>.btn:last-child{border-radius:0 var(--radius-input) var(--radius-input) 0}
+.float{position:relative}
+.float .input{height:56px;padding:22px 14px 8px}
+.float label{position:absolute;left:15px;top:18px;font-size:14px;color:var(--text-muted);pointer-events:none;transition:all var(--dur-base);font-weight:500}
+.float .input:focus+label,.float .input:not(:placeholder-shown)+label{top:9px;font-size:11px;color:var(--brand-active);font-weight:600}
+.input.valid{border-color:var(--success)}
+.input.valid:focus{box-shadow:0 0 0 3px rgba(34,197,94,.25)}
+.valid-feedback{font-size:var(--fs-caption);color:var(--success-text);display:flex;align-items:center;gap:5px}
+.invalid-feedback{font-size:var(--fs-caption);color:var(--error-text);display:flex;align-items:center;gap:5px}
+
+/* ================== conteúdo / tipografia ================== */
+.lead2{font-size:18px;color:var(--text-secondary);line-height:1.6}
+blockquote.bq{border-left:3px solid var(--brand);padding:4px 0 4px 18px;font-size:17px;color:var(--text-primary);font-style:italic;line-height:1.6}
+blockquote.bq cite{display:block;font-size:13px;color:var(--text-muted);font-style:normal;margin-top:8px}
+mark.hl{background:var(--lime-200);color:var(--lime-900);padding:1px 4px;border-radius:4px}
+kbd{background:var(--neutral-900);color:#fff;font-family:ui-monospace,monospace;font-size:12px;padding:3px 7px;border-radius:6px;box-shadow:var(--shadow-sm)}
+code.inline{background:var(--surface-2);color:var(--error-text);font-family:ui-monospace,monospace;font-size:13px;padding:2px 6px;border-radius:5px}
+pre.block{background:#16181D;color:#C9D1D9;font-family:ui-monospace,monospace;font-size:13px;padding:16px;border-radius:var(--radius-md);overflow-x:auto;line-height:1.6;white-space:pre-wrap}
+.list-inline{list-style:none;display:flex;gap:16px;flex-wrap:wrap}
+.list-inline li{display:flex;align-items:center;gap:6px;font-size:14px}
+ol.list-num{list-style:none;counter-reset:n;padding:0}
+ol.list-num li{counter-increment:n;display:flex;align-items:center;gap:12px;padding:7px 0;font-size:14px}
+ol.list-num li::before{content:counter(n);width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ================== tabela variações ================== */
+.dt.striped tbody tr:nth-child(odd){background:var(--surface-2)}
+.dt.hover tbody tr{transition:background var(--dur-base)}
+.dt.hover tbody tr:hover{background:var(--lime-50)}
+.dt.bordered th,.dt.bordered td{border:1px solid var(--border)}
+.dt-dark{width:100%;border-collapse:collapse;font-size:var(--fs-body-sm);background:var(--neutral-900);border-radius:var(--radius-md);overflow:hidden;color:#fff}
+.dt-dark th{text-align:left;font-size:var(--fs-caption);text-transform:uppercase;letter-spacing:.04em;font-weight:600;color:var(--neutral-400);padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dt-dark td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.dt-dark tr:last-child td{border-bottom:none}
+
+/* ================== progress variações ================== */
+.progress.sm{height:5px}.progress.lg{height:14px}
+.progress.striped>i{background-image:linear-gradient(45deg,rgba(17,19,23,.18) 25%,transparent 25%,transparent 50%,rgba(17,19,23,.18) 50%,rgba(17,19,23,.18) 75%,transparent 75%);background-size:16px 16px}
+.progress.anim>i{animation:progmove 1s linear infinite}
+@keyframes progmove{from{background-position:0 0}to{background-position:16px 0}}
+.progress.stack{display:flex}
+.progress.stack>i{border-radius:0}
+
+/* ================== list group variações ================== */
+.lgroup.flush{border:none;border-radius:0}
+
+/* ================== card variações ================== */
+.bcard-h{display:flex;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm)}
+.bcard-h .cap{width:96px;flex:none;background:var(--lime-100);display:flex;align-items:center;justify-content:center;color:var(--lime-700)}
+.bcard-h .bd{padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
+.bcard-overlay{position:relative;border-radius:var(--radius-md);overflow:hidden;height:180px;background:var(--neutral-800);display:flex;align-items:flex-end;color:#fff;padding:20px}
+.bcard-overlay::before{content:'';position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.bcard-overlay .ov-c{position:relative}
+
+/* ================== nav variações ================== */
+.nav-vert{display:flex;flex-direction:column;gap:2px}
+.nav-vert button{display:flex;align-items:center;gap:10px;border:none;background:transparent;text-align:left;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--text-secondary);padding:11px 16px;border-radius:var(--radius-lg);cursor:pointer;transition:all var(--dur-base)}
+.nav-vert button .ti{font-size:19px}
+.nav-vert button:hover{background:var(--surface-2);color:var(--text-primary)}
+.nav-vert button:active{transform:scale(.97)}
+.nav-vert button.active{background:var(--brand);color:var(--on-brand)}
+.tabs.fill{display:flex}.tabs.fill button{flex:1;text-align:center}
+
+/* ================== tooltip direções ================== */
+.tip .bubble.right{bottom:auto;top:50%;left:calc(100% + 8px);transform:translateY(-50%)}
+.tip .bubble.right::after{top:50%;left:-5px;right:auto;transform:translateY(-50%);border-top-color:transparent;border-right-color:var(--neutral-900)}
+.tip .bubble.bottom{bottom:auto;top:calc(100% + 8px)}
+.tip .bubble.bottom::after{top:-5px;bottom:auto;border-top-color:transparent;border-bottom-color:var(--neutral-900)}
+.tip .bubble.left{bottom:auto;top:50%;left:auto;right:calc(100% + 8px);transform:translateY(-50%)}
+.tip .bubble.left::after{top:50%;left:auto;right:-5px;transform:translateY(-50%);border-top-color:transparent;border-left-color:var(--neutral-900)}
+
+/* ================== imagens & mídia ================== */
+.imgph{background:var(--lime-100);display:flex;align-items:center;justify-content:center;color:var(--lime-700)}
+.img-rounded{border-radius:var(--radius-md)}
+.thumb{border:1.5px solid var(--border);border-radius:var(--radius-md);padding:4px;background:var(--surface-1)}
+figure.fig{margin:0}
+figure.fig figcaption{font-size:13px;color:var(--text-muted);margin-top:8px}
+.ratio{position:relative;width:100%;border-radius:var(--radius-md);overflow:hidden;background:var(--neutral-200)}
+.ratio.r169{aspect-ratio:16/9}
+.ratio .ph2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-weight:600}
+
+/* ================== helpers ================== */
+.vr{width:1.5px;background:var(--border-strong);align-self:stretch;min-height:24px}
+
+/* ================== botões — variações ================== */
+.btn-link{background:transparent;color:var(--brand-active);text-decoration:underline;text-underline-offset:3px}
+.btn-link:hover{color:var(--lime-700)}
+.btn-soft{background:var(--lime-100);color:var(--lime-900)}
+.btn-soft:hover{background:var(--lime-200)}
+.btn-outline-success{background:transparent;color:var(--success-text);box-shadow:inset 0 0 0 1.5px var(--success)}
+.btn-outline-danger{background:transparent;color:var(--error-text);box-shadow:inset 0 0 0 1.5px var(--error)}
+.btn-outline-info{background:transparent;color:var(--info-text);box-shadow:inset 0 0 0 1.5px var(--info)}
+.btn-block{width:100%}
+.btn-badge{position:relative;display:inline-flex}
+.btn-badge .cnt{position:absolute;top:-7px;right:-7px;min-width:20px;height:20px;border-radius:var(--radius-full);background:var(--error);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid var(--bg-body)}
+.btn-toolbar{display:flex;gap:10px;flex-wrap:wrap}
+
 /* ===== alternância de tema ===== */
 .theme-toggle{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface-1);color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:transform var(--dur-fast) var(--ease-standard),background var(--dur-base),color var(--dur-base)}
 .theme-toggle:hover{background:var(--surface-2);color:var(--text-primary)}
@@ -436,14 +670,14 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
 <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu"><i class="ti ti-menu-2"></i></button>
 <div class="sidenav-backdrop" id="sidenavBackdrop"></div>
 <nav class="sidenav">
-  <div class="sidenav-brand"><span class="nav-mark"><i class="ti ti-stack-2" style="font-size:18px;color:var(--neutral-900)"></i></span><b>Copiloto<br>Design System</b><button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema"><i class="ti ti-moon"></i></button></div>
+  <div class="sidenav-brand"><span class="nav-mark"><i class="ti ti-stack-2" style="font-size:18px;color:var(--neutral-900)"></i></span><b>Copiloto<br>Componentes</b><button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema"><i class="ti ti-moon"></i></button></div>
   <div class="glabel">Fundações</div>
   <a href="#cores">Cores</a>
   <a href="#tipografia">Tipografia</a>
   <a href="#espacamento">Espaçamento</a>
   <a href="#raios">Raios</a>
   <a href="#sombras">Sombras</a>
-  <div class="glabel">Componentes base</div>
+  <div class="glabel">Base</div>
   <a href="#botoes">Botões</a>
   <a href="#formularios">Formulários</a>
   <a href="#badges">Badges</a>
@@ -457,6 +691,30 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
   <a href="#metricas">Métricas</a>
   <a href="#painel">Painel</a>
   <a href="#toolbar">Designer</a>
+  <div class="glabel">Componentes</div>
+  <a href="#bs-accordion">Accordion</a>
+  <a href="#bs-breadcrumb">Breadcrumb</a>
+  <a href="#bs-btngroup">Button group</a>
+  <a href="#bs-cards">Cards</a>
+  <a href="#bs-carousel">Carousel</a>
+  <a href="#bs-close">Close &amp; dismiss</a>
+  <a href="#bs-collapse">Collapse</a>
+  <a href="#bs-content">Conteúdo</a>
+  <a href="#bs-dropdown">Dropdown</a>
+  <a href="#bs-helpers">Helpers</a>
+  <a href="#bs-images">Imagens</a>
+  <a href="#bs-list">List group</a>
+  <a href="#bs-modal">Modal</a>
+  <a href="#bs-navbar">Navbar</a>
+  <a href="#bs-offcanvas">Offcanvas</a>
+  <a href="#bs-pagination">Pagination</a>
+  <a href="#bs-placeholders">Placeholders</a>
+  <a href="#bs-popover">Popover</a>
+  <a href="#bs-progressvariants">Progress</a>
+  <a href="#bs-spinners">Spinners</a>
+  <a href="#bs-tabs">Tabs &amp; pills</a>
+  <a href="#bs-toasts">Toasts</a>
+  <a href="#bs-tooltips">Tooltips</a>
 </nav>
 
 <div class="wrap">
@@ -609,6 +867,24 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
       <button class="btn btn-primary" style="box-shadow:var(--focus-ring)">Focus</button>
       <button class="btn btn-primary" disabled>Disabled</button>
     </div>
+
+    <h3 class="sub">Variações de cor &amp; utilitários</h3>
+    <div class="row" style="margin-bottom:14px">
+      <button class="btn btn-outline-success">Aprovar</button>
+      <button class="btn btn-outline-danger">Recusar</button>
+      <button class="btn btn-outline-info">Info</button>
+      <button class="btn btn-soft">Soft</button>
+      <button class="btn btn-link">Saiba mais</button>
+    </div>
+    <div class="btn-toolbar" style="margin-bottom:16px">
+      <div class="btn-group"><button class="btn sel">B</button><button class="btn">I</button><button class="btn">U</button></div>
+      <div class="btn-group"><button class="btn">Esq</button><button class="btn">Centro</button><button class="btn">Dir</button></div>
+    </div>
+    <div class="row" style="align-items:center;gap:18px;margin-bottom:14px">
+      <span class="btn-badge"><button class="btn btn-slate"><i class="ti ti-bell"></i>Notificações</button><span class="cnt">7</span></span>
+      <span class="btn-badge"><button class="btn btn-ghost"><i class="ti ti-mail"></i>Inbox</button><span class="cnt">3</span></span>
+    </div>
+    <button class="btn btn-primary btn-block" style="max-width:320px">Botão de largura total</button>
   </section>
 
   <!-- FORMS -->
@@ -635,6 +911,26 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
       <span class="row" style="gap:8px"><button class="toggle" type="button"></button><span style="font-size:13px">Inativo</span></span>
     </div>
     <div style="margin-top:24px;max-width:320px"><label class="label" style="display:block;margin-bottom:8px">Slider</label><input class="slider" type="range" min="0" max="100" value="60"/></div>
+
+    <h3 class="sub">Input group</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <div class="igroup"><span class="addon">@</span><input class="input" placeholder="usuario"/></div>
+      <div class="igroup"><span class="addon"><i class="ti ti-search"></i></span><input class="input" placeholder="Buscar"/><button class="btn btn-primary">Ir</button></div>
+      <div class="igroup"><span class="addon">R$</span><input class="input" placeholder="0,00"/><span class="addon">,00</span></div>
+      <div class="igroup"><input class="input" placeholder="email@copiloto.app"/><button class="btn btn-slate">Enviar</button></div>
+    </div>
+
+    <h3 class="sub">Floating labels</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:560px">
+      <div class="float"><input class="input" id="fl1" placeholder=" "/><label for="fl1">Nome do cliente</label></div>
+      <div class="float"><input class="input" id="fl2" placeholder=" " value="Carlos Santos"/><label for="fl2">Lead</label></div>
+    </div>
+
+    <h3 class="sub">Validação</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:560px">
+      <div class="field"><label class="label">Válido</label><input class="input valid" value="joao@copiloto.app"/><span class="valid-feedback"><i class="ti ti-circle-check"></i>Tudo certo.</span></div>
+      <div class="field"><label class="label">Inválido</label><input class="input error" value="joao@"/><span class="invalid-feedback"><i class="ti ti-alert-circle"></i>E-mail incompleto.</span></div>
+    </div>
   </section>
 
   <!-- BADGES -->
@@ -705,6 +1001,19 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
           <tr><td>CTA</td><td><span class="badge badge-neutral">Rascunho</span></td><td>1</td><td style="text-align:right"><i class="ti ti-dots" style="color:var(--text-muted)"></i></td></tr>
         </tbody>
       </table>
+    </div>
+
+    <h3 class="sub">Variações</h3>
+    <div class="grid" style="gap:20px">
+      <div class="panel" style="padding:0;overflow:hidden"><table class="dt striped hover"><thead><tr><th>Cliente</th><th>Etapa</th><th>Status</th></tr></thead><tbody>
+        <tr><td>Fashion Brand SA</td><td>Onboarding</td><td><span class="badge badge-success">Ativo</span></td></tr>
+        <tr><td>TechCo</td><td>Diagnóstico</td><td><span class="badge badge-warning">Pendente</span></td></tr>
+        <tr><td>Studio Norte</td><td>Treinamento</td><td><span class="badge badge-neutral">Pausado</span></td></tr>
+      </tbody></table></div>
+      <table class="dt-dark"><thead><tr><th>Job</th><th>Worker</th><th>Status</th></tr></thead><tbody>
+        <tr><td>lead-3024</td><td>gemini-pro</td><td><span class="badge badge-dark">Processando</span></td></tr>
+        <tr><td>lead-3025</td><td>whatsapp-api</td><td><span class="badge badge-dark">Na fila</span></td></tr>
+      </tbody></table>
     </div>
   </section>
 
@@ -916,11 +1225,344 @@ h3.sub{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:
     </div>
   </section>
 
+  <!-- ===================== COMPONENTES ===================== -->
   <hr class="rule" style="margin-top:64px"/>
-  <p style="text-align:center;font-size:12px;color:var(--text-muted)">Copiloto Design System · página única autossuficiente</p>
+  <div class="eyebrow" style="margin-top:48px">Biblioteca</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-.02em">Componentes</h2>
+  <p style="color:var(--text-secondary);margin-top:4px">Biblioteca completa de componentes, no padrão e identidade do Copiloto.</p>
+
+  <!-- ACCORDION -->
+  <section class="section" id="bs-accordion">
+    <h2>Accordion</h2>
+    <p class="lead">Seções expansíveis (nativo via <span class="mono">&lt;details&gt;</span>, sem JS).</p>
+    <div class="accordion">
+      <details open><summary>Como funciona a jornada <span class="chev"><i class="ti ti-chevron-down"></i></span></summary><div class="body">Cada lead percorre departamentos e etapas. O Copiloto pilota os follow-ups automaticamente.</div></details>
+      <details><summary>Configurar provedores <span class="chev"><i class="ti ti-chevron-down"></i></span></summary><div class="body">Conecte WhatsApp, modelo de IA e webhooks na aba Engine / Saúde.</div></details>
+      <details><summary>Exportar relatórios <span class="chev"><i class="ti ti-chevron-down"></i></span></summary><div class="body">Gere relatórios completos de métricas e custos em tempo real.</div></details>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <section class="section" id="bs-breadcrumb">
+    <h2>Breadcrumb</h2>
+    <p class="lead">Trilha de navegação hierárquica.</p>
+    <div class="bcrumb"><a href="#">Início</a><span class="sep">/</span><a href="#">Operação</a><span class="sep">/</span><span class="cur">Comercial</span></div>
+  </section>
+
+  <!-- BUTTON GROUP -->
+  <section class="section" id="bs-btngroup">
+    <h2>Button group</h2>
+    <p class="lead">Botões agrupados — seleção segmentada.</p>
+    <div class="btn-group">
+      <button class="btn sel">Dia</button>
+      <button class="btn">Semana</button>
+      <button class="btn">Mês</button>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="section" id="bs-cards">
+    <h2>Cards</h2>
+    <p class="lead">Contêiner flexível com capa, corpo e rodapé.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <div class="bcard"><div class="cap"><i class="ti ti-photo" style="font-size:34px"></i></div><div class="bd"><h4>Campanha Verão</h4><p>Texto de apoio descrevendo o conteúdo do card.</p><button class="btn btn-primary btn-sm btn-pill">Abrir</button></div><div class="ft">Atualizado há 3 min</div></div>
+      <div class="bcard"><div class="bd"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h4 style="margin:0">Status</h4><span class="badge badge-success">Ativo</span></div><p>Card sem capa, com badge no cabeçalho.</p><div class="lgroup" style="border:none"><div class="it" style="padding:8px 0;border-color:var(--border)"><i class="ti ti-check"></i>Item concluído</div><div class="it" style="padding:8px 0"><i class="ti ti-clock"></i>Em progresso</div></div></div></div>
+      <div class="bcard"><div class="cap" style="background:var(--neutral-900);color:var(--brand)"><i class="ti ti-rocket" style="font-size:34px"></i></div><div class="bd"><h4>Lançar produção</h4><p>Card de destaque com capa escura.</p><button class="btn btn-slate btn-sm btn-pill">Detalhes</button></div></div>
+    </div>
+
+    <h3 class="sub">Variações</h3>
+    <div class="grid" style="gap:20px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))">
+      <div class="bcard-h"><div class="cap"><i class="ti ti-user" style="font-size:28px"></i></div><div class="bd"><h4 style="font-family:var(--font-display);font-weight:600;font-size:16px;margin-bottom:4px">Carlos Santos</h4><p style="font-size:13px;color:var(--text-secondary);margin:0">Lead em onboarding · 43m</p></div></div>
+      <div class="bcard"><div class="bd" style="padding-bottom:10px"><h4>Resumo</h4></div><div class="lgroup" style="border:none;border-top:1px solid var(--border);border-radius:0"><div class="it">Leads ativos<span class="badge badge-brand" style="margin-left:auto">8</span></div><div class="it">Em risco<span class="badge badge-error" style="margin-left:auto">2</span></div></div><div class="ft">Atualizado agora</div></div>
+      <div class="bcard-overlay"><div class="ov-c"><div style="font-family:var(--font-display);font-weight:700;font-size:18px">Campanha Verão</div><div style="font-size:13px;opacity:.85">3 processos ativos</div></div></div>
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section class="section" id="bs-carousel">
+    <h2>Carousel</h2>
+    <p class="lead">Slides rotativos com controles e indicadores.</p>
+    <div class="carousel" data-carousel>
+      <div class="slide on">Slide 1</div>
+      <div class="slide">Slide 2</div>
+      <div class="slide">Slide 3</div>
+      <button class="ctrl prev" aria-label="Anterior"><i class="ti ti-chevron-left"></i></button>
+      <button class="ctrl next" aria-label="Próximo"><i class="ti ti-chevron-right"></i></button>
+      <div class="dots"><i class="on"></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- CLOSE + DISMISSIBLE -->
+  <section class="section" id="bs-close">
+    <h2>Close button &amp; dismissible</h2>
+    <p class="lead">Botão de fechar e alerta dispensável (clique no × pra fechar).</p>
+    <div class="row" style="gap:16px;align-items:center">
+      <button class="btn-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+      <div class="alert alert-info" data-dismissable style="flex:1;max-width:440px;align-items:center;justify-content:space-between"><span style="display:flex;gap:10px;align-items:center"><i class="ti ti-info-circle"></i>Esse alerta pode ser fechado.</span><button class="btn-close" data-dismiss aria-label="Fechar"><i class="ti ti-x"></i></button></div>
+    </div>
+  </section>
+
+  <!-- COLLAPSE -->
+  <section class="section" id="bs-collapse">
+    <h2>Collapse</h2>
+    <p class="lead">Mostrar/ocultar um bloco de conteúdo.</p>
+    <div class="accordion" style="max-width:480px">
+      <details><summary>Ver payload do evento <span class="chev"><i class="ti ti-chevron-down"></i></span></summary><div class="body"><span class="mono">{ "lead": "51HTJ49A", "stage": "onboarding", "keys": 1 }</span></div></details>
+    </div>
+  </section>
+
+  <!-- DROPDOWN -->
+  <section class="section" id="bs-dropdown">
+    <h2>Dropdown</h2>
+    <p class="lead">Menu suspenso (nativo via <span class="mono">&lt;details&gt;</span>).</p>
+    <details class="dropdown">
+      <summary class="btn btn-slate btn-pill" style="height:42px">Ações <i class="ti ti-chevron-down"></i></summary>
+      <div class="dmenu">
+        <a><i class="ti ti-user"></i>Perfil</a>
+        <a><i class="ti ti-settings"></i>Configurações</a>
+        <a><i class="ti ti-download"></i>Exportar</a>
+        <div class="div"></div>
+        <a style="color:var(--error-text)"><i class="ti ti-logout" style="color:var(--error-text)"></i>Sair</a>
+      </div>
+    </details>
+  </section>
+
+  <!-- LIST GROUP -->
+  <section class="section" id="bs-list">
+    <h2>List group</h2>
+    <p class="lead">Lista de itens com estado ativo, hover e desabilitado.</p>
+    <div class="lgroup" style="max-width:440px">
+      <a class="it active"><i class="ti ti-inbox"></i>Caixa de entrada</a>
+      <a class="it"><i class="ti ti-send"></i>Enviados</a>
+      <a class="it"><i class="ti ti-archive"></i>Arquivados</a>
+      <div class="it muted"><i class="ti ti-lock"></i>Spam (bloqueado)</div>
+    </div>
+
+    <h3 class="sub">Variações — numerada, com badge e checkbox</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;align-items:start">
+      <div class="lgroup">
+        <div class="it"><span class="kcount" style="background:var(--brand);color:var(--on-brand)">1</span>Conectar provedores</div>
+        <div class="it"><span class="kcount" style="background:var(--brand);color:var(--on-brand)">2</span>Desenhar a jornada</div>
+        <div class="it"><span class="kcount" style="background:var(--brand);color:var(--on-brand)">3</span>Lançar produção</div>
+      </div>
+      <div class="lgroup">
+        <div class="it">Mensagens<span class="badge badge-brand" style="margin-left:auto">12</span></div>
+        <div class="it">Tarefas<span class="badge badge-warning" style="margin-left:auto">4</span></div>
+        <div class="it">Concluídas<span class="badge badge-success" style="margin-left:auto">28</span></div>
+      </div>
+      <div class="lgroup">
+        <div class="it"><label class="check" style="gap:10px"><input type="checkbox" checked/><span class="box"><i class="ti ti-check"></i></span>WhatsApp conectado</label></div>
+        <div class="it"><label class="check" style="gap:10px"><input type="checkbox"/><span class="box"><i class="ti ti-check"></i></span>Modelo de IA</label></div>
+        <div class="it"><label class="check" style="gap:10px"><input type="checkbox"/><span class="box"><i class="ti ti-check"></i></span>Webhook inbound</label></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <section class="section" id="bs-modal">
+    <h2>Modal</h2>
+    <p class="lead">Diálogo sobre backdrop escurecido.</p>
+    <div class="faux-vp">
+      <div class="modal-card">
+        <div class="hd"><h4>Confirmar lançamento</h4><button class="btn-close"><i class="ti ti-x"></i></button></div>
+        <div class="bd2">Tem certeza que deseja lançar em produção? Essa ação dispara o worker e não pode ser desfeita.</div>
+        <div class="ft"><button class="btn btn-ghost btn-pill">Cancelar</button><button class="btn btn-primary btn-pill">Confirmar</button></div>
+      </div>
+    </div>
+
+    <h3 class="sub">Tamanhos</h3>
+    <div class="faux-vp" style="gap:20px;flex-wrap:wrap;min-height:240px">
+      <div class="modal-card" style="max-width:260px"><div class="hd"><h4 style="font-size:16px">Pequeno</h4><button class="btn-close"><i class="ti ti-x"></i></button></div><div class="bd2" style="padding:18px">Confirmação rápida.</div></div>
+      <div class="modal-card" style="max-width:340px"><div class="hd"><h4 style="font-size:16px">Grande</h4><button class="btn-close"><i class="ti ti-x"></i></button></div><div class="bd2" style="padding:18px">Mais espaço pra formulários extensos e conteúdo detalhado.</div><div class="ft"><button class="btn btn-primary btn-pill btn-sm">Ok</button></div></div>
+    </div>
+  </section>
+
+  <!-- NAVBAR -->
+  <section class="section" id="bs-navbar">
+    <h2>Navbar</h2>
+    <p class="lead">Barra de navegação superior.</p>
+    <div class="navbar">
+      <span class="brand"><span class="brand-logo" style="width:32px;height:32px"><i class="ti ti-rocket" style="font-size:18px;color:var(--neutral-900)"></i></span>Copiloto</span>
+      <a class="active">Início</a><a>Operação</a><a>Designer</a>
+      <span style="flex:1"></span>
+      <button class="btn btn-primary btn-pill btn-sm">Entrar</button>
+    </div>
+  </section>
+
+  <!-- TABS + PILLS -->
+  <section class="section" id="bs-tabs">
+    <h2>Tabs &amp; pills</h2>
+    <p class="lead">Navegação por abas e por pílulas (clicáveis).</p>
+    <div data-tabs style="margin-bottom:28px">
+      <div class="tabs"><button class="active">Visão geral</button><button>Atividade</button><button>Config</button></div>
+      <div class="tabpane">Conteúdo da Visão geral — resumo da operação.</div>
+      <div class="tabpane" style="display:none">Conteúdo de Atividade — últimos eventos.</div>
+      <div class="tabpane" style="display:none">Conteúdo de Config — preferências.</div>
+    </div>
+    <div data-tabs>
+      <div class="pills"><button class="active">Todos</button><button>Ativos</button><button>Arquivados</button></div>
+      <div class="tabpane">Mostrando todos os processos.</div>
+      <div class="tabpane" style="display:none">Mostrando apenas ativos.</div>
+      <div class="tabpane" style="display:none">Mostrando arquivados.</div>
+    </div>
+
+    <h3 class="sub">Vertical &amp; preenchida (fill)</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;align-items:start">
+      <div class="nav-vert" style="max-width:220px">
+        <button class="active"><i class="ti ti-home"></i>Início</button>
+        <button><i class="ti ti-users"></i>Operação</button>
+        <button><i class="ti ti-chart-bar"></i>Métricas</button>
+      </div>
+      <div data-tabs><div class="tabs fill"><button class="active">Dia</button><button>Semana</button><button>Mês</button></div><div class="tabpane">Resumo do dia.</div><div class="tabpane" style="display:none">Resumo da semana.</div><div class="tabpane" style="display:none">Resumo do mês.</div></div>
+    </div>
+  </section>
+
+  <!-- OFFCANVAS -->
+  <section class="section" id="bs-offcanvas">
+    <h2>Offcanvas</h2>
+    <p class="lead">Painel lateral deslizante.</p>
+    <div class="offcanvas-vp">
+      <div class="offcanvas-panel">
+        <div class="row" style="justify-content:space-between;margin-bottom:18px"><b style="font-family:var(--font-display);font-size:17px">Filtros</b><button class="btn-close"><i class="ti ti-x"></i></button></div>
+        <div class="field" style="margin-bottom:14px"><label class="label">Status</label><select class="input"><option>Todos</option><option>Ativos</option></select></div>
+        <div class="field" style="margin-bottom:18px"><label class="label">Cliente</label><input class="input" placeholder="Buscar…"/></div>
+        <button class="btn btn-primary btn-pill" style="width:100%">Aplicar filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGINATION -->
+  <section class="section" id="bs-pagination">
+    <h2>Pagination</h2>
+    <p class="lead">Navegação entre páginas.</p>
+    <div class="pagination">
+      <a class="disabled"><i class="ti ti-chevron-left"></i></a>
+      <a class="active">1</a><a>2</a><a>3</a><a>…</a><a>12</a>
+      <a><i class="ti ti-chevron-right"></i></a>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDERS -->
+  <section class="section" id="bs-placeholders">
+    <h2>Placeholders</h2>
+    <p class="lead">Skeleton de carregamento com shimmer.</p>
+    <div class="bcard" style="max-width:300px"><div class="cap" style="background:var(--neutral-200)"></div><div class="bd"><div class="ph-line" style="width:70%;margin-bottom:10px"></div><div class="ph-line" style="width:100%;margin-bottom:8px"></div><div class="ph-line" style="width:88%;margin-bottom:16px"></div><div class="ph-line" style="width:42%;height:34px;border-radius:var(--radius-lg)"></div></div></div>
+  </section>
+
+  <!-- POPOVER -->
+  <section class="section" id="bs-popover">
+    <h2>Popover</h2>
+    <p class="lead">Sobreposição com título e conteúdo.</p>
+    <div class="popover"><div class="ttl">Dica de segurança</div><div class="ct">Nunca exponha o segredo no client — use o header x-api-key.</div></div>
+  </section>
+
+  <!-- SPINNERS -->
+  <section class="section" id="bs-spinners">
+    <h2>Spinners</h2>
+    <p class="lead">Indicadores de carregamento — border e grow.</p>
+    <div class="row" style="gap:28px;align-items:center">
+      <div class="spinner"></div>
+      <div class="spinner" style="width:34px;height:34px;border-width:4px"></div>
+      <div class="spinner-grow"></div>
+      <div class="spinner-grow" style="width:34px;height:34px"></div>
+    </div>
+  </section>
+
+  <!-- TOASTS -->
+  <section class="section" id="bs-toasts">
+    <h2>Toasts</h2>
+    <p class="lead">Notificações temporárias (clique no × pra fechar).</p>
+    <div class="grid" style="gap:12px;max-width:380px">
+      <div class="toast" data-dismissable><span class="ic"><i class="ti ti-check" style="color:var(--neutral-900);font-size:18px"></i></span><div class="tx"><b>Produção lançada</b><span>há 2 segundos</span></div><button class="btn-close" data-dismiss><i class="ti ti-x"></i></button></div>
+      <div class="toast" data-dismissable><span class="ic" style="background:var(--info)"><i class="ti ti-bell" style="color:#fff;font-size:18px"></i></span><div class="tx"><b>Novo lead recebido</b><span>Carlos Santos · Logística BR</span></div><button class="btn-close" data-dismiss><i class="ti ti-x"></i></button></div>
+    </div>
+  </section>
+
+  <!-- ===================== MAIS COMPONENTES & VARIAÇÕES ===================== -->
+  <hr class="rule" style="margin-top:64px"/>
+  <div class="eyebrow" style="margin-top:48px">Conteúdo &amp; utilitários</div>
+  <h2 style="font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-.02em">Conteúdo &amp; extras</h2>
+  <p style="color:var(--text-secondary);margin-top:4px">Tipografia de conteúdo, progresso, tooltips, mídia e helpers — no padrão Copiloto.</p>
+
+  <!-- CONTENT / TYPOGRAPHY -->
+  <section class="section" id="bs-content">
+    <h2>Conteúdo &amp; tipografia</h2>
+    <p class="lead">Lead, citação, listas, destaque, código e teclas.</p>
+    <p class="lead2" style="margin-bottom:18px">Esse é um parágrafo <b>lead</b>, levemente maior, pra abrir uma seção com respiro.</p>
+    <blockquote class="bq" style="margin-bottom:22px">"Automatize a jornada e deixe o Copiloto pilotar a operação."<cite>— Time Copiloto</cite></blockquote>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px">
+      <div><div class="eyebrow">Lista numerada</div><ol class="list-num"><li>Conectar provedores</li><li>Desenhar a jornada</li><li>Lançar produção</li></ol></div>
+      <div><div class="eyebrow">Lista inline</div><ul class="list-inline"><li><i class="ti ti-point-filled" style="color:var(--brand);font-size:10px"></i>Leads</li><li><i class="ti ti-point-filled" style="color:var(--brand);font-size:10px"></i>Etapas</li><li><i class="ti ti-point-filled" style="color:var(--brand);font-size:10px"></i>Custos</li></ul></div>
+      <div><div class="eyebrow">Destaque & teclas</div><p style="font-size:14px;line-height:2">Use <mark class="hl">destaque</mark>, código <code class="inline">x-api-key</code> e atalho <kbd>⌘</kbd> <kbd>K</kbd>.</p></div>
+    </div>
+    <pre class="block" style="margin-top:18px">POST /webhook  →  { "lead": "51HTJ49A", "stage": "onboarding" }</pre>
+  </section>
+
+  <!-- PROGRESS -->
+  <section class="section" id="bs-progressvariants">
+    <h2>Progress</h2>
+    <p class="lead">Alturas, listrada/animada, empilhada e com rótulo.</p>
+    <div class="grid" style="gap:16px;max-width:560px">
+      <div class="progress sm"><i style="width:30%"></i></div>
+      <div class="progress"><i style="width:55%"></i></div>
+      <div class="progress lg striped anim"><i style="width:70%"></i></div>
+      <div class="progress lg stack"><i style="width:40%"></i><i style="width:25%;background:var(--info)"></i><i style="width:15%;background:var(--warning)"></i></div>
+      <div><div class="row" style="justify-content:space-between;font-size:13px;margin-bottom:6px"><span class="mono">Budget Gemini</span><span class="mono">42%</span></div><div class="progress"><i style="width:42%"></i></div></div>
+    </div>
+  </section>
+
+  <!-- TOOLTIPS DIRECTIONS -->
+  <section class="section" id="bs-tooltips">
+    <h2>Tooltips — direções</h2>
+    <p class="lead">Top, direita, baixo e esquerda.</p>
+    <div class="row" style="gap:56px;padding:46px 40px;justify-content:center;background:var(--surface-sunken);border-radius:var(--radius-md)">
+      <span class="tip"><button class="btn btn-ghost btn-sm">Top</button><span class="bubble">Acima</span></span>
+      <span class="tip"><button class="btn btn-ghost btn-sm">Right</button><span class="bubble right">À direita</span></span>
+      <span class="tip"><button class="btn btn-ghost btn-sm">Bottom</button><span class="bubble bottom">Abaixo</span></span>
+      <span class="tip"><button class="btn btn-ghost btn-sm">Left</button><span class="bubble left">À esquerda</span></span>
+    </div>
+  </section>
+
+  <!-- IMAGES & MEDIA -->
+  <section class="section" id="bs-images">
+    <h2>Imagens &amp; mídia</h2>
+    <p class="lead">Cantos arredondados, thumbnail, figure e proporção 16:9.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;align-items:start">
+      <div class="imgph img-rounded" style="height:118px"><i class="ti ti-photo" style="font-size:30px"></i></div>
+      <div class="thumb"><div class="imgph" style="height:106px;border-radius:8px"><i class="ti ti-photo" style="font-size:28px"></i></div></div>
+      <figure class="fig"><div class="imgph img-rounded" style="height:106px"><i class="ti ti-camera" style="font-size:28px"></i></div><figcaption>Legenda da imagem.</figcaption></figure>
+      <div class="ratio r169"><div class="ph2"><i class="ti ti-player-play" style="font-size:26px;margin-right:8px"></i>16:9</div></div>
+    </div>
+  </section>
+
+  <!-- HELPERS -->
+  <section class="section" id="bs-helpers">
+    <h2>Helpers</h2>
+    <p class="lead">Régua vertical para separar itens em linha.</p>
+    <div class="row" style="gap:0;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 20px;max-width:420px;align-items:center">
+      <span style="font-weight:600">Leads</span><span class="vr" style="margin:0 16px"></span><span style="font-weight:600">Etapas</span><span class="vr" style="margin:0 16px"></span><span style="font-weight:600">Custos</span>
+    </div>
+  </section>
+
+  <hr class="rule" style="margin-top:64px"/>
+  <p style="text-align:center;font-size:12px;color:var(--text-muted)">Copiloto · Padrão e Design System do Piloto Automático</p>
 </div>
 <script>
 (function(){var K='copiloto-theme',r=document.documentElement,b=document.getElementById('themeToggle');function s(t){r.setAttribute('data-theme',t);try{localStorage.setItem(K,t)}catch(e){}if(b)b.innerHTML='<i class="ti ti-'+(t==='dark'?'sun':'moon')+'"></i>'}var v;try{v=localStorage.getItem(K)}catch(e){}s(v||'light');if(b)b.onclick=function(){s(r.getAttribute('data-theme')==='dark'?'light':'dark')}})();
+document.querySelectorAll('[data-tabs]').forEach(function(g){
+  var btns=g.querySelectorAll('.tabs button,.pills button'),panes=g.querySelectorAll('.tabpane');
+  btns.forEach(function(b,i){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+    panes.forEach(function(p,j){p.style.display=j===i?'block':'none'});
+  })});
+});
+document.querySelectorAll('[data-carousel]').forEach(function(c){
+  var s=c.querySelectorAll('.slide'),d=c.querySelectorAll('.dots i'),i=0;
+  function go(n){i=(n+s.length)%s.length;s.forEach(function(x,k){x.classList.toggle('on',k===i)});d.forEach(function(x,k){x.classList.toggle('on',k===i)})}
+  c.querySelector('.prev').onclick=function(){go(i-1)};c.querySelector('.next').onclick=function(){go(i+1)};
+  d.forEach(function(x,k){x.onclick=function(){go(k)}});
+});
+document.querySelectorAll('[data-dismiss]').forEach(function(b){b.onclick=function(){var t=b.closest('[data-dismissable]');if(t)t.style.display='none'}});
 document.querySelectorAll('.toggle,.tpill').forEach(function(t){t.addEventListener('click',function(){
   var on=t.classList.toggle('on');
   if(t.classList.contains('tpill')){t.classList.toggle('off',!on);var lbl=t.querySelector('span');if(lbl)lbl.textContent=on?'ON':'OFF';var ic=t.querySelector('i');if(ic)ic.className='ti '+(on?'ti-circle-check':'ti-circle');}
