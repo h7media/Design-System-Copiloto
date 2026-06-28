@@ -1,0 +1,7 @@
+# Imagens de referência (prints) — não fazem parte do design system
+Captura*.png
+*.png
+
+# Sistema
+.DS_Store
+Thumbs.db
