@@ -8,6 +8,14 @@ Estética **Lime & Slate**: lime vibrante (`#C6F24F`) sobre off-white suave, con
 
 [`index.html`](index.html) — página única e autossuficiente com a biblioteca completa: fundações (tokens, cores, tipografia, espaçamento, raios, sombras), componentes base, blocos de aplicação e todos os componentes (accordion, cards, modal, dropdown, tabs, toasts, paginação, formulários, tabelas e mais). É só abrir no navegador.
 
+## Exemplos
+
+Telas reais construídas 100% dentro do Design System — totalmente **responsivas** (mobile, tablet, desktop) e com **tema claro/escuro**:
+
+- [`exemplos/copiloto-landing.html`](exemplos/copiloto-landing.html) — landing page da suíte (menu mobile, grids que empilham, hero responsivo).
+- [`exemplos/leads-kanban.html`](exemplos/leads-kanban.html) — CRM de leads em Kanban, com sidebar drawer no mobile e gaveta de configuração de etapa (campos, follow-up, automações, Copiloto IA).
+- [`exemplos/lead-conversa.html`](exemplos/lead-conversa.html) — inbox/conversa do lead (chat estilo WhatsApp, funil, painel de dados com auto-save; painéis viram drawers no mobile/tablet).
+
 ## Recursos
 
 - **Tokens** como variáveis CSS (`:root`) — cores, tipografia, espaçamento, raios, sombras e motion.
